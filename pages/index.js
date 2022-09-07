@@ -7,6 +7,17 @@ import Navbar from "../components/nav/navbar";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const desneyVideo = [
+    {
+      imgUrl: "/static/clifford.webp",
+    },
+    {
+      imgUrl: "/static/clifford.webp",
+    },
+    {
+      imgUrl: "/static/clifford.webp",
+    },
+  ];
   return (
     <div className={styles.container}>
       <Head>
@@ -22,7 +33,8 @@ export default function Home() {
         imgUrl="/static/clifford.webp"
       />
       <div className={styles.sectionWrapper}>
-        <SectionCards title="Disney" />
+        <SectionCards title="Disney" videos={desneyVideo} size="large" />
+        <SectionCards title="Productivity" videos={desneyVideo} size="medium" />
       </div>
     </div>
   );
