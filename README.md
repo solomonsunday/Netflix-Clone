@@ -1,13 +1,15 @@
 ## About The Project
 
--- A Netflix Clone where the videos/movies are gotten from youtube, using Nextjs, (SSR) Server Side Rendering, CSS Module, Framer Motion, Redux for state management, and Youtube API to dispaly videos. Passwordless authetication using magic
+**A passwordless Netflix Clone where magn link is used to authenticate a user, also the videos/movies are gotten from youtube API. Using React Nextjs, (SSR) Server Side Rendering, CSS Module, Framer Motion, Redux for state management,Magic link to automatically validate user email and Youtube API to dispaly videos.**
 
 ## How to set the project up on your system
 
--- Clone the project from here https://github.com/solomonsunday/Netflix-Clone
--- CD into the projdect dirrectory
--- Run yarn install or npm install to pull down the dependencies
--- First, run the development server:
+- Note : **the main branch is the updated branch for the project**
+
+- _Clone the project from here **https://github.com/solomonsunday/Netflix-Clone**_
+- _CD into the project dirrectory_
+- _Run yarn install or npm install to pull down the dependencies_
+- _First, run the development server:_
 
 ```bash / terminal
 npm run dev
