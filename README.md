@@ -1,6 +1,6 @@
 ## About The Project
 
-**A Passwordless Netflix Clone where magn link is used to authenticate a user, also the videos/movies are gotten from youtube API. Using React Nextjs, (SSR) Server Side Rendering, CSS Module, Framer Motion, Redux for state management,Magic link to automatically validate user email and Youtube API to dispaly videos.**
+**A Passwordless Netflix Clone where magic link is used to authenticate a user, also the videos/movies are gotten from youtube API. Using React Nextjs, (SSR) Server Side Rendering, CSS Module, Framer Motion, Redux for state management,Magic link to automatically validate user email, Youtube API to dispaly videos and GrapphQL.**
 
 ## How to set the project up on your system
 
