@@ -1,13 +1,13 @@
 ## About The Project
 
--- A Netflix Clone where the videos/movies are gotten from youtube, using Nextjs, (SSR) Server Side Rendering, CSS Module, Framer Motion, Redux for state management, and Youtube API to dispaly videos.
+**A Netflix Clone where the videos/movies are gotten from youtube, using Nextjs, (SSR) Server Side Rendering, CSS Module, Framer Motion, Redux for state management, and Youtube API to dispaly videos.**
 
 ## How to set the project up on your system
 
--- Clone the project from here https://github.com/solomonsunday/Netflix-Clone
--- CD into the projdect dirrectory
--- Run yarn install or npm install to pull down the dependencies
--- First, run the development server:
+_Clone the project from here **https://github.com/solomonsunday/Netflix-Clone**_
+_CD into the projdect dirrectory_
+_Run yarn install or npm install to pull down the dependencies_
+_First, run the development server:_
 
 ```bash / terminal
 npm run dev
