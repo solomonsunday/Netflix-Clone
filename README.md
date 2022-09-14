@@ -4,10 +4,10 @@
 
 ## How to set the project up on your system
 
-_Clone the project from here **https://github.com/solomonsunday/Netflix-Clone**_
-_CD into the projdect dirrectory_
-_Run yarn install or npm install to pull down the dependencies_
-_First, run the development server:_
+- _Clone the project from here **https://github.com/solomonsunday/Netflix-Clone**_
+- _CD into the projdect dirrectory_
+- _Run yarn install or npm install to pull down the dependencies_
+- _First, run the development server:_
 
 ```bash / terminal
 npm run dev
