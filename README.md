@@ -1,6 +1,6 @@
 ## About The Project
 
--- A Netflix Clone where the videos/movies are gotten from youtube, using Nextjs, (SSR) Server Side Rendering, CSS Module, Framer Motion, Redux for state management, and Youtube API to dispaly videos.
+-- A Netflix Clone where the videos/movies are gotten from youtube, using Nextjs, (SSR) Server Side Rendering, CSS Module, Framer Motion, Redux for state management, and Youtube API to dispaly videos. Passwordless authetication using magic
 
 ## How to set the project up on your system
 
