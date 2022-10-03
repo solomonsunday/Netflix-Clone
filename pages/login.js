@@ -9,13 +9,13 @@ import { magic } from "../lib/magic_client";
 const Login = () => {
   const [userMsg, setUserMsg] = useState("");
   const [email, setEmail] = useState("");
-  const [isLoading, steIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
 
   useEffect(() => {
     const handleComplete = () => {
-      steIsLoading(false);
+      setIsLoading(false);
     };
     router.events.on("routeChanageComplete", handleComplete);
     router.events.on("routeChanageError", handleComplete);
@@ -41,7 +41,7 @@ const Login = () => {
 
   const handleLoginWithEmail = async (e) => {
     e.preventDefault();
-    steIsLoading(true);
+    setIsLoading(true);
     if (isValidEmailAddress(email)) {
       // route to dashboard
       try {
@@ -52,13 +52,13 @@ const Login = () => {
         }
       } catch (error) {
         console.log("Something went wrong", error);
-        steIsLoading(false);
+        setIsLoading(false);
       }
       // router.push("/");
     } else {
       //show error message
       setUserMsg("Enter a valid email address");
-      steIsLoading(false);
+      setIsLoading(false);
     }
   };
 
