@@ -1,14 +1,30 @@
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
 import styles from "../styles/Login.module.css";
 import { useRouter } from "next/router";
+import { magic } from "../lib/magic_client";
 
 const Login = () => {
   const [userMsg, setUserMsg] = useState("");
   const [email, setEmail] = useState("");
+  const [isLoading, steIsLoading] = useState(false);
+
   const router = useRouter();
+
+  useEffect(() => {
+    const handleComplete = () => {
+      steIsLoading(false);
+    };
+    router.events.on("routeChanageComplete", handleComplete);
+    router.events.on("routeChanageError", handleComplete);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChanageError", handleComplete);
+    };
+  }, [router]);
 
   function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(
@@ -23,14 +39,26 @@ const Login = () => {
     e.preventDefault();
   };
 
-  const handleLoginWithEmail = (e) => {
+  const handleLoginWithEmail = async (e) => {
     e.preventDefault();
+    steIsLoading(true);
     if (isValidEmailAddress(email)) {
       // route to dashboard
-      router.push("/");
+      try {
+        const didToken = await magic.auth.loginWithMagicLink({ email });
+        console.log({ didToken });
+        if (didToken) {
+          router.push("/");
+        }
+      } catch (error) {
+        console.log("Something went wrong", error);
+        steIsLoading(false);
+      }
+      // router.push("/");
     } else {
       //show error message
       setUserMsg("Enter a valid email address");
+      steIsLoading(false);
     }
   };
 
@@ -66,7 +94,7 @@ const Login = () => {
           />
           <p className={styles.userMsg}> {userMsg}</p>
           <button onClick={handleLoginWithEmail} className={styles.loginBtn}>
-            Sign In
+            {isLoading ? "Loading ..." : "Sign in"}
           </button>
         </div>
       </main>
