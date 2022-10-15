@@ -14,8 +14,8 @@ function MyApp({ Component, pageProps }) {
       try {
         const isLoggedIn = await magic.user.isLoggedIn();
         if (isLoggedIn) {
-          router.push("/");
-          // setIsLoading(false);
+          // router.push("/");
+          setIsLoading(false);
         } else {
           router.push("/login");
           setIsLoading(false);
