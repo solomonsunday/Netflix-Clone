@@ -3,27 +3,45 @@ import React from "react";
 import Modal from "react-modal";
 import styles from "../../styles/Video.module.css";
 import clsx from "classnames";
+import { getYoutubeVideoById } from "../../lib/videos";
+import Navbar from "../../components/nav/navbar";
 
 Modal.setAppElement("#__next");
 
-const Video = () => {
+export async function getStaticProps(context) {
+  let id = context.params.videoId;
+  const videoId = id;
+  const videoArray = await getYoutubeVideoById(videoId);
+
+  return {
+    props: {
+      video: videoArray.length > 0 ? videoArray[0] : {},
+    },
+    revalidate: 10, // In seconds
+  };
+}
+
+export async function getStaticPaths() {
+  const listOfVideos = ["mYfJxlgR2jw", "bKh2G73gCCs", "4zH5iYM4wJo"];
+
+  // Get the paths we want to pre-render based on posts
+  const paths = listOfVideos.map((videoId) => ({
+    params: { videoId },
+  }));
+
+  return { paths, fallback: "blocking" };
+}
+
+const Video = ({ video }) => {
   const router = useRouter();
 
   const { videoId } = router.query;
-
-  const video = {
-    title: "Hi cute dog",
-    publishTime: "1999-01-01",
-    description:
-      "A big red dog that is super cute, ca he get any bigger? A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger? A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?A big red dog that is super cute, ca he get any bigger?",
-    channelTitle: "Paramont Pictures",
-    viewCount: 1000,
-  };
 
   const { title, publishTime, description, channelTitle, viewCount } = video;
 
   return (
     <div className={styles.container}>
+      <Navbar />
       <Modal
         isOpen={true}
         onRequestClose={() => router.back()}
@@ -41,7 +59,6 @@ const Video = () => {
           frameBorder="0"
         ></iframe>
         {/* M7lc1UVf-VE */}
-
         <div className={styles.modalBody}>
           <div className={styles.modalBodyContent}>
             <div className={styles.col1}>
