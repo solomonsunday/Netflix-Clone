@@ -102,7 +102,7 @@
     margin: 0px;
   }
   
-  @media (min-width: 1024px) {
+  @media (max-width: 1024px) {
     .modal {
       top:10%;
       bottom: 40px;

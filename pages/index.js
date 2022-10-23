@@ -7,6 +7,7 @@ import Navbar from "../components/nav/navbar";
 import styles from "../styles/Home.module.css";
 import { getPopularVideos, getVideos } from "../lib/videos";
 import { magic } from "../lib/magic_client";
+import { startFetchMyQuery } from "../lib/db/hasura";
 
 export async function getServerSideProps() {
   const disneyVideos = await getVideos("disney trailer");
@@ -25,6 +26,7 @@ export default function Home({
   travelVideos,
   popularVideos,
 }) {
+  startFetchMyQuery();
   return (
     <div className={styles.container}>
       <Head>
